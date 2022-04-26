@@ -1,6 +1,5 @@
-<div align="center"> <a href="https://github.com/guoshaonb/general-admin-web"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://106.55.240.242/my-file-path/images/admin-pwa-middle.png"> </a> <br> 
+<div align="center"> <a href="https://github.com/guoshaonb/general-admin-web"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://106.55.240.242/my-file-path/images/admin-pwa-middle.png">
 <h1>general-admin-web 管理员</h1>
-<br>
 </div>
 
 ## 简介
