@@ -22,6 +22,11 @@ general-admin-web 是一个基于【vue vben admin】免费开源的动态后台
 
 测试账号: test/123456
 
+## 项目地址
+
+- [general-admin-web](https://github.com/guoshaonb/general-admin-web) - 前端代码
+- [general-admin-server](https://github.com/guoshaonb/general-admin-server) - 后端代码
+
 ## 文档
 
 [文档地址](https://vvbin.cn/doc-next/)
@@ -65,8 +70,3 @@ pnpm serve
 ```bash
 pnpm build
 ```
-
-## 项目地址
-
-- [general-admin-web](https://github.com/guoshaonb/general-admin-web) - 前端代码
-- [general-admin-server](https://github.com/guoshaonb/general-admin-server) - 后端代码
