@@ -33,13 +33,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
+import { message } from 'ant-design-vue';
 import { BasicTable, useTable, TableAction } from '/@/components/Table';
 import { getMenusList, delMenu } from '/@/api/demo/system';
 import { operationApi } from '/@/utils/event/operation';
 import { useDrawer } from '/@/components/Drawer';
 import drawer from './drawer.vue';
 import { columns, searchFormSchema } from './data';
-import { message } from 'ant-design-vue'
 
 export default defineComponent({
   name: 'RoleManagement',
@@ -96,8 +96,8 @@ export default defineComponent({
     }
 
     function handleConfig(record: Recordable) {
-      if(record.type == '1') {
-        return message.warning("只能给【菜单】添加配置哦")
+      if (record.type == '1') {
+        return message.warning('只能给【菜单】添加配置哦');
       }
       router.push({ path: '/dynamic/config', query: { menu_id: record.id } });
     }
@@ -109,7 +109,7 @@ export default defineComponent({
       handleEdit,
       handleDelete,
       handleSuccess,
-      handleConfig
+      handleConfig,
     };
   },
 });
