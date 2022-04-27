@@ -6,6 +6,12 @@
 
 general-admin-web 是一个基于【vue vben admin】免费开源的动态后台模版。使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，开箱即用的中后台前端解决方案，也可用于学习参考。
 
+## 演示视频
+
+<div align="center" style="padding:20px 0">
+  <video src='http://106.55.240.242/my-file-path/video/demonstration.mp4' autoplay muted></video>
+</div>
+
 ## 特性
 
 - **最新技术栈**：使用 Vue3/vite2 等前端前沿技术开发
