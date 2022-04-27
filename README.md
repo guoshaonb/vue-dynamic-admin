@@ -25,7 +25,7 @@ general-admin-web 是一个基于【vue vben admin】免费开源的动态后台
 
 ## 预览
 
-- [general-admin-web](http://106.55.240.242/ad-general/index.html) - 预览界面
+- [general-admin-web](http://106.55.240.242/ad-dynamic/index.html) - 预览界面
 
 测试账号: test/123456
 
