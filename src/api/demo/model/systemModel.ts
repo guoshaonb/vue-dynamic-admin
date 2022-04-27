@@ -64,13 +64,6 @@ export interface UserListItem {
   id: string;
 }
 
-export interface CatalogueListItem {
-  id: string;
-  name: string;
-  icon: string;
-  parent_id: number;
-}
-
 export interface MenuListItem {
   id: string;
   name: string;
@@ -101,8 +94,6 @@ export type RolePageListGetResultModel = BasicFetchResult<RoleListItem>;
 export type RoleListGetResultModel = RoleListItem[];
 
 export type UserListGetResultModel = UserListItem[];
-
-export type CatalogueListGetResultModel = CatalogueListItem[];
 
 export type MenuListGetResultModel = MenuListItem[];
 

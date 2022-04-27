@@ -7,17 +7,7 @@
     width="500px"
     @ok="handleSubmit"
   >
-    <BasicForm @register="registerForm">
-      <template #menu="{ model, field }">
-        <BasicTree
-          v-model:value="model[field]"
-          :treeData="treeData"
-          :replaceFields="{ title: 'name', key: 'id' }"
-          checkable
-          toolbar
-        />
-      </template>
-    </BasicForm>
+    <BasicForm @register="registerForm"></BasicForm>
   </BasicDrawer>
 </template>
 <script lang="ts">
@@ -25,18 +15,18 @@ import { defineComponent, ref, computed, unref } from 'vue';
 import { BasicForm, useForm } from '/@/components/Form/index';
 import { formSchema } from './data';
 import { BasicDrawer, useDrawerInner } from '/@/components/Drawer';
-import { BasicTree, TreeItem } from '/@/components/Tree';
+import { TreeItem } from '/@/components/Tree';
 
-import { getCatalogueList, addCatalogue, editCatalogue } from '/@/api/demo/system';
+import { getMenusList, addMenu, editMenu } from '/@/api/demo/system';
 import { operationApi } from '/@/utils/event/operation';
 
 export default defineComponent({
   name: 'drawer',
-  components: { BasicDrawer, BasicForm, BasicTree },
+  components: { BasicDrawer, BasicForm },
   emits: ['success', 'register'],
   setup(_, { emit }) {
     const isUpdate = ref(true);
-    const catalogueId = ref('');
+    const MenuId = ref('');
     const treeData = ref<TreeItem[]>([]);
 
     const [registerForm, { resetFields, setFieldsValue, updateSchema, validate }] = useForm({
@@ -50,10 +40,10 @@ export default defineComponent({
       setDrawerProps({ confirmLoading: false });
       // 需要在setFieldsValue之前先填充treeData，否则Tree组件可能会报key not exist警告
       if (unref(treeData).length === 0) {
-        treeData.value = (await getCatalogueList()) as any as TreeItem[];
+        treeData.value = (await getMenusList()) as any as TreeItem[];
       }
       isUpdate.value = !!data?.isUpdate;
-      catalogueId.value = data?.id;
+      MenuId.value = data?.id;
       if (unref(isUpdate)) {
         setFieldsValue({
           ...data.record,
@@ -73,15 +63,15 @@ export default defineComponent({
         const values = await validate();
         setDrawerProps({ confirmLoading: true });
         // TODO custom api
-        if(!values.parent_id) values.parent_id = '0'
+        if (!values.parent_id) values.parent_id = '0';
         operationApi('addOredit', values, {
-          id: catalogueId.value,
-          addAction: addCatalogue,
-          editAction: editCatalogue,
+          id: MenuId.value,
+          addAction: addMenu,
+          editAction: editMenu,
         }).then(() => {
           closeDrawer();
           emit('success');
-        })
+        });
       } finally {
         setDrawerProps({ confirmLoading: false });
       }

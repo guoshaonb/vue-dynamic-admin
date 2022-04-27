@@ -9,7 +9,7 @@ import { isUrl } from '/@/utils/is';
 import { router } from '/@/router';
 import { PermissionModeEnum } from '/@/enums/appEnum';
 import { pathToRegexp } from 'path-to-regexp';
-import { getCatalogueList, getMenusList } from '/@/api/demo/system';
+import { getMenusList } from '/@/api/demo/system';
 const modules = import.meta.globEager('./modules/**/*.ts');
 
 const menuModules: MenuModule[] = [];
@@ -62,45 +62,29 @@ async function getAsyncMenus() {
   return staticMenus;
 }
 
-function recursionList(catalogueData) {
-  catalogueData.map(item => {
-    item.icon = item.icon
-    if (item.children && item.children instanceof Array && item.children.length) {
+const recursionList = (menuData) => {
+  menuData.map(item => {
+    switch (item.type) {
+      case '1':
+        if (!item.hasOwnProperty('children')) {
+          item.children = []
+          item.disabled = true
+        }
+        break;
+      case '2':
+        item.path = `/dynamic/page?menu_id=${item.id}&name=${item.name}`
+        break;
+    }
+    if (item.children && item.children instanceof Array && item.children.length > 0) {
       recursionList(item.children)
     }
   })
 }
 
-function recurPageList(catalogueData, menuData) {
-  catalogueData.map(item => {
-    const menuList = menuData.filter(ite => ite.catalogueId == item.id)
-    if (!item.hasOwnProperty('children')) {
-      item.children = []
-    }
-    menuList.forEach(element => {
-      item.children?.push({
-        name: element.name,
-        path: `/dynamic/page?menu_id=${element.id}&name=${element.name}`,
-        title: element.name,
-        isMenu: true
-      })
-    });
-    if (item.children && item.children instanceof Array && item.children.length) {
-      recurPageList(item.children, menuData)
-    } else {
-      if(!item.hasOwnProperty('isMenu')){
-        item.disabled = true
-      }
-    }
-  })
-}
-
 const getDynamicMenus = async () => {
-  const catalogueData = await getCatalogueList()
   const menuData = await getMenusList()
-  recursionList(catalogueData)
-  recurPageList(catalogueData, menuData)
-  return catalogueData
+  recursionList(menuData)
+  return menuData
 }
 
 export const getMenus = async (): Promise<Menu[]> => {
@@ -110,7 +94,7 @@ export const getMenus = async (): Promise<Menu[]> => {
     return filter(menus, basicFilter(routes));
   }
   let dynamicMenus = !window.location.href.includes('login') ? await getDynamicMenus() : []
-  return [...menus,...dynamicMenus];  
+  return [...menus, ...dynamicMenus];
 };
 
 export async function getCurrentParentPath(currentPath: string) {

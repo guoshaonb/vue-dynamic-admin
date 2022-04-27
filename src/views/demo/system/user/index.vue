@@ -42,7 +42,7 @@ import { useModal } from '/@/components/Modal';
 import UserModal from './UserModal.vue';
 import { columns, searchFormSchema } from './user.data';
 import { useGo } from '/@/hooks/web/usePage';
-import { getCatalogueList, delUser } from '/@/api/demo/system';
+import { delUser } from '/@/api/demo/system';
 import { operationApi } from '/@/utils/event/operation';
 import { USER_INFO_KEY } from '/@/enums/cacheEnum';
 import { Persistent } from '/@/utils/cache/persistent';

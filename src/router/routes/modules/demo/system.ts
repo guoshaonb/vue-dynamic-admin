@@ -66,15 +66,6 @@ const system: AppRouteModule = {
     //   component: () => import('/@/views/demo/system/role/index.vue'),
     // },
     {
-      path: 'catalogue',
-      name: 'catalogue',
-      meta: {
-        title: t('routes.demo.system.catalogue'),
-        ignoreKeepAlive: true,
-      },
-      component: () => import('/@/views/demo/system/catalogue/index.vue'),
-    },
-    {
       path: 'menu',
       name: 'menu',
       meta: {

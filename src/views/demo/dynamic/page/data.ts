@@ -49,27 +49,29 @@ export const searchFormSchema = function (data?) {
       }
     }
   }
-  return [{
-    field: 'selectField',
-    label: '选择查询条件',
-    component: 'Select',
-    colProps: { span: 8 },
-    componentProps: {
-      options,
+  return [
+    {
+      field: 'selectField',
+      label: '选择查询条件',
+      component: 'Select',
+      colProps: { span: 8 },
+      componentProps: {
+        options,
+      },
     },
-  },
-  {
-    field: 'inputValue',
-    label: '输入查询内容',
-    component: 'Input',
-    colProps: { span: 8 },
-  }]
+    {
+      field: 'inputValue',
+      label: '输入查询内容',
+      component: 'Input',
+      colProps: { span: 8 },
+    }
+  ]
 }
 
 export const formSchema = function (data?, classifys?) {
   const configArray: any = []
-  if (classifys?.length > 1) {
-    for (const item of classifys) {
+  for (const item of classifys) {
+    if (classifys?.length > 1) {
       configArray.push({
         field: 'divider-basic',
         component: 'Divider',
@@ -79,20 +81,21 @@ export const formSchema = function (data?, classifys?) {
         },
         isExist: 't'
       })
-      for (let i = 1; i <= 50; i++) {
-        if (data?.['c_' + i]?.class == item) {
-          configArray.push({
-            field: 'data' + i,
-            label: data?.['c_' + i]?.name,
-            component: data?.['c_' + i]?.type,
-            componentProps: {
-              options: data?.['c_' + i]?.options,
-            },
-            isExist: data?.['c_' + i]?.isExist
-          })
-        }
+    }
+    for (let i = 1; i <= 50; i++) {
+      if (data?.['c_' + i]?.class == item) {
+        configArray.push({
+          field: 'data' + i,
+          label: data?.['c_' + i]?.name,
+          component: data?.['c_' + i]?.type,
+          componentProps: {
+            options: data?.['c_' + i]?.options,
+          },
+          isExist: data?.['c_' + i]?.isExist
+        })
       }
     }
+
   }
   return configArray?.filter(item => item?.isExist !== 'f')
 }

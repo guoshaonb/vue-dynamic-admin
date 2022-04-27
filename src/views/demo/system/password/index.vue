@@ -42,8 +42,9 @@ export default defineComponent({
       try {
         const values = await validate();
         const { passwordOld, passwordNew } = values;
+        const username = userStore.getUserInfo.username;
         const params = {
-          username: 'guoshao',
+          username,
           passwordOld,
           passwordNew,
         };

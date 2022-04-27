@@ -10,7 +10,6 @@ import {
   RolePageListGetResultModel,
   RoleListGetResultModel,
   UserListGetResultModel,
-  CatalogueListGetResultModel,
   MenuListGetResultModel,
   ConfigListGetResultModel,
   DataListGetResultModel
@@ -32,11 +31,6 @@ enum Api {
   UserUpdate = '/user/update',
   UserUpdpass = '/user/updpass',
   UserHidden = '/user/hidden',
-  //目录管理
-  CatalogueList = '/catalogue/list',
-  CatalogueCreate = '/catalogue/create',
-  CatalogueUpdate = '/catalogue/update',
-  CatalogueHidden = '/catalogue/hidden',
   //菜单管理
   MenusList = '/menu/list',
   MenuCreate = '/menu/create',
@@ -101,22 +95,9 @@ export const editPass = (params?: UserListGetResultModel) =>
 export const delUser = (params?: UserListGetResultModel) =>
   defHttp.delete({ url: [Api.UserHidden, params?.['id']].join('/') + '?is_del=1', params });
 
-//目录接口
-export const getCatalogueList = (params?: CatalogueListGetResultModel) =>
-  defHttp.get({ url: Api.CatalogueList + "?include=tree", params });
-
-export const addCatalogue = (params?: CatalogueListGetResultModel) =>
-  defHttp.post({ url: Api.CatalogueCreate, params });
-
-export const editCatalogue = (params?: CatalogueListGetResultModel) =>
-  defHttp.put({ url: [Api.CatalogueUpdate, params?.['id']].join('/'), params });
-
-export const delCatalogue = (params?: CatalogueListGetResultModel) =>
-  defHttp.delete({ url: [Api.CatalogueHidden, params?.['id']].join('/') + '?is_del=1', params });
-
 //菜单接口
 export const getMenusList = (params?: MenuListGetResultModel) =>
-  defHttp.get({ url: Api.MenusList, params });
+  defHttp.get({ url: Api.MenusList + '?include=tree', params });
 
 export const addMenu = (params?: MenuListGetResultModel) =>
   defHttp.post({ url: Api.MenuCreate, params });

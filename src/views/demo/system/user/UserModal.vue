@@ -8,7 +8,7 @@ import { defineComponent, ref, computed, unref } from 'vue';
 import { BasicModal, useModalInner } from '/@/components/Modal';
 import { BasicForm, useForm } from '/@/components/Form/index';
 import { userFormSchema } from './user.data';
-import { getCatalogueList, addUser, editUser } from '/@/api/demo/system';
+import { addUser, editUser } from '/@/api/demo/system';
 import { operationApi } from '/@/utils/event/operation';
 export default defineComponent({
   name: 'UserModal',
