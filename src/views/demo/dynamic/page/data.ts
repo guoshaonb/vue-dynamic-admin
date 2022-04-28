@@ -24,7 +24,6 @@ export const columns = function (data?) {
     dataIndex: 'updatedAt',
     width: 150,
   }]
-
   for (let i = 1; i <= 50; i++) {
     middleArray.push({
       title: data?.['c_' + i]?.name,
@@ -33,7 +32,9 @@ export const columns = function (data?) {
       isExist: data?.['c_' + i]?.isExist,
     })
   }
-  return [...startArray, ...middleArray, ...afterArray]?.filter(item => item?.isExist !== 'f')
+  return JSON.stringify(data) === '{}' ? [] :
+    [...startArray, ...middleArray, ...afterArray]?.
+      filter(item => item?.isExist !== 'f')
 }
 
 export const searchFormSchema = function (data?) {
@@ -95,7 +96,6 @@ export const formSchema = function (data?, classifys?) {
         })
       }
     }
-
   }
   return configArray?.filter(item => item?.isExist !== 'f')
 }

@@ -1,7 +1,6 @@
 <template>
   <PageWrapper dense contentFullHeight fixedHeight contentClass="flex">
     <BasicTable
-      v-if="isShow"
       ref="tableRef"
       :title="route.query.name + '列表'"
       :columns="columns"
@@ -94,7 +93,6 @@ export default defineComponent({
     const [registerModal, { openModal }] = useModal();
     const route = useRoute();
     const state: any = reactive({
-      isShow: true,
       searchFormSchema: [],
       columns: [],
       configObj: {},

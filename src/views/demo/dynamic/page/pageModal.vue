@@ -7,7 +7,6 @@
     @ok="handleSubmit"
   >
     <BasicForm
-      v-if="isShow"
       ref="BasicForm"
       :labelWidth="100"
       :schemas="schemas"
@@ -55,7 +54,6 @@ export default defineComponent({
     const isUpdate = ref(true);
     const route = useRoute();
     const state = reactive({
-      isShow: true,
       schemas: [],
     });
     const userId = ref('');
@@ -70,6 +68,7 @@ export default defineComponent({
 
     const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
       setModalProps({ confirmLoading: false });
+      pageId.value = data?.id;
       isUpdate.value = !!data?.isUpdate;
       if (unref(isUpdate)) {
         state.schemas = state.schemas.map((item) => {
@@ -103,11 +102,6 @@ export default defineComponent({
           return item;
         });
       }
-      pageId.value = data?.id;
-      state.isShow = false;
-      setTimeout(() => {
-        state.isShow = true;
-      }, 100);
     });
 
     const getTitle = computed(() => (!unref(isUpdate) ? '新增' : '编辑'));
