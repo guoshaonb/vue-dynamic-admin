@@ -55,7 +55,7 @@ export default defineComponent({
       });
     });
 
-    const getTitle = computed(() => (!unref(isUpdate) ? '新增目录' : '编辑目录'));
+    const getTitle = computed(() => (!unref(isUpdate) ? '新增菜单' : '编辑菜单'));
 
     async function handleSubmit() {
       try {

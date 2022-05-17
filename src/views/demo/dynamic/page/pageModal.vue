@@ -67,6 +67,7 @@ export default defineComponent({
     })();
 
     const [registerModal, { setModalProps, closeModal }] = useModalInner(async (data) => {
+      BasicForm.value.resetFields();
       setModalProps({ confirmLoading: false });
       pageId.value = data?.id;
       isUpdate.value = !!data?.isUpdate;
