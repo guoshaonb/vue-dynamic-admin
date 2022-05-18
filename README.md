@@ -1,10 +1,10 @@
-<div align="center"> <a href="https://github.com/guoshaonb/general-admin-web"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://106.55.240.242/my-file-path/images/admin-pwa-middle.png">
-<h1>general-admin-web 管理员</h1>
+<div align="center"> <a href="https://github.com/guoshaonb/vue-dynamic-admin"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://106.55.240.242/my-file-path/images/admin-pwa-middle.png">
+<h1>vue-dynamic-admin 管理员</h1>
 </div>
 
 ## 简介
 
-general-admin-web 是一个基于【vue vben admin】免费开源的动态后台模版。使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，开箱即用的中后台前端解决方案，也可用于学习参考。
+vue-dynamic-admin 是一个基于【vue vben admin】免费开源的动态后台模版。使用了最新的`vue3`,`vite2`,`TypeScript`等主流技术开发，开箱即用的中后台前端解决方案，也可用于学习参考。
 
 ## 演示视频
 
@@ -25,14 +25,14 @@ general-admin-web 是一个基于【vue vben admin】免费开源的动态后台
 
 ## 预览
 
-- [general-admin-web](http://106.55.240.242/ad-dynamic/index.html) - 预览界面
+- [vue-dynamic-admin](http://106.55.240.242/ad-dynamic/index.html) - 预览界面
 
 测试账号: test/123456
 
 ## 项目地址
 
-- [general-admin-web](https://github.com/guoshaonb/general-admin-web) - 前端代码
-- [general-admin-server](https://github.com/guoshaonb/general-admin-server) - 后端代码
+- [vue-dynamic-admin](https://github.com/guoshaonb/vue-dynamic-admin) - 前端代码
+- [vue-dynamic-service](https://github.com/guoshaonb/vue-dynamic-service) - 后端代码
 
 ## 文档
 
@@ -54,13 +54,13 @@ general-admin-web 是一个基于【vue vben admin】免费开源的动态后台
 - 获取项目代码
 
 ```bash
-git clone https://github.com/guoshaonb/general-admin-web.git
+git clone https://github.com/guoshaonb/vue-dynamic-admin.git
 ```
 
 - 安装依赖
 
 ```bash
-cd general-admin-web
+cd vue-dynamic-admin
 
 pnpm install
 
