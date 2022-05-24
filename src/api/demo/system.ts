@@ -30,29 +30,29 @@ enum Api {
   UserRegister = '/user/register',
   UserUpdate = '/user/update',
   UserUpdpass = '/user/updpass',
-  UserHidden = '/user/hidden',
+  UserDelete = '/user/delete',
   //菜单管理
   MenusList = '/menu/list',
   MenuCreate = '/menu/create',
   MenuUpdate = '/menu/update',
-  MenuHidden = '/menu/hidden',
+  MenuDelete = '/menu/delete',
   //通用配置
   GeneralConfigList = '/generalconfig/list',
   GeneralConfigCreate = '/generalconfig/create',
   GeneralConfigUpdate = '/generalconfig/update',
-  GeneralConfigHidden = '/generalconfig/hidden',
+  GeneralConfigDelete = '/generalconfig/delete',
   GeneralConfigTranslate = '/generalconfig/translate',
   //通用配置分类
   ConfigclassifyList = '/configclassify/list',
   ConfigclassifyCreate = '/configclassify/create',
   ConfigclassifyUpdate = '/configclassify/update',
-  ConfigclassifyHidden = '/configclassify/hidden',
+  ConfigclassifyDelete = '/configclassify/delete',
   //通用数据
   GeneralDataList = '/generaldata/list',
   GeneralDataCreate = '/generaldata/create',
   GeneralDataUpdate = '/generaldata/update',
-  GeneralDataHidden = '/generaldata/hidden',
-  GeneralDataHiddens = '/generaldata/hiddens',
+  GeneralDataDelete = '/generaldata/delete',
+  GeneralDataDeletes = '/generaldata/deletes',
 }
 
 export const getAccountList = (params: AccountParams) =>
@@ -93,7 +93,7 @@ export const editPass = (params?: UserListGetResultModel) =>
   defHttp.put({ url: Api.UserUpdpass, params });
 
 export const delUser = (params?: UserListGetResultModel) =>
-  defHttp.delete({ url: [Api.UserHidden, params?.['id']].join('/') + '?is_del=1', params });
+  defHttp.delete({ url: [Api.UserDelete, params?.['id']].join('/') + '?is_del=1', params });
 
 //菜单接口
 export const getMenusList = (params?: MenuListGetResultModel) =>
@@ -106,7 +106,7 @@ export const editMenu = (params?: MenuListGetResultModel) =>
   defHttp.put({ url: [Api.MenuUpdate, params?.['id']].join('/'), params });
 
 export const delMenu = (params?: MenuListGetResultModel) =>
-  defHttp.delete({ url: [Api.MenuHidden, params?.['id']].join('/') + '?is_del=1', params });
+  defHttp.delete({ url: [Api.MenuDelete, params?.['id']].join('/') + '?is_del=1', params });
 
 //通用配置
 export const getGeneralConfigList = (params?: ConfigListGetResultModel) =>
@@ -119,7 +119,7 @@ export const editGeneralConfig = (params?: ConfigListGetResultModel) =>
   defHttp.put({ url: [Api.GeneralConfigUpdate, params?.['id']].join('/'), params });
 
 export const delGeneralConfig = (params?: ConfigListGetResultModel) =>
-  defHttp.delete({ url: [Api.GeneralConfigHidden, params?.['id']].join('/') + '?is_del=1', params });
+  defHttp.delete({ url: [Api.GeneralConfigDelete, params?.['id']].join('/') + '?is_del=1', params });
 
 export const getGeneralConfigTranslate = (params?: ConfigListGetResultModel) =>
   defHttp.get({ url: Api.GeneralConfigTranslate, params });
@@ -135,7 +135,7 @@ export const editConfigclassify = (params?: ConfigListGetResultModel) =>
   defHttp.put({ url: [Api.ConfigclassifyUpdate, params?.['id']].join('/'), params });
 
 export const delConfigclassify = (params?: ConfigListGetResultModel) =>
-  defHttp.delete({ url: [Api.ConfigclassifyHidden, params?.['id']].join('/') + '?is_del=1', params });
+  defHttp.delete({ url: [Api.ConfigclassifyDelete, params?.['id']].join('/') + '?is_del=1', params });
   
 //通用数据
 export const getGeneralDataList = (params?: DataListGetResultModel) =>
@@ -148,9 +148,9 @@ export const editGeneralData = (params?: DataListGetResultModel) =>
   defHttp.put({ url: [Api.GeneralDataUpdate, params?.['id']].join('/'), params });
 
 export const delGeneralData = (params?: DataListGetResultModel) =>
-  defHttp.delete({ url: [Api.GeneralDataHidden, params?.['id']].join('/') + '?is_del=1', params });
+  defHttp.delete({ url: [Api.GeneralDataDelete, params?.['id']].join('/') + '?is_del=1', params });
 
 export const delsGeneralData = (params?: DataListGetResultModel) =>
-  defHttp.delete({ url: Api.GeneralDataHiddens, params });
+  defHttp.delete({ url: Api.GeneralDataDeletes, params });
 
   
