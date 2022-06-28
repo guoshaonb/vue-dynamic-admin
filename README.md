@@ -1,4 +1,4 @@
-<div align="center"> <a href="https://github.com/guoshaonb/vue-dynamic-admin"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://106.55.240.242/my-file-path/images/admin-pwa-middle.png">
+<div align="center"> <a href="https://github.com/guoshaonb/vue-dynamic-admin"> <img alt="VbenAdmin Logo" width="100" height="100" src="http://www.guoshao520.com/my-file-path/images/admin-pwa-middle.png">
 <h1>vue-dynamic-admin 管理员</h1>
 </div>
 
@@ -9,8 +9,8 @@ vue-dynamic-admin 是一个基于【vue vben admin】免费开源的动态后台
 ## 演示视频
 
 <div style="padding:20px 0">
-  <a href="http://106.55.240.242/my-file-path/video/demonstration.mp4">点我查看演示视频！！</a>
-  <!-- <video src='http://106.55.240.242/my-file-path/video/demonstration.mp4' autoplay muted></video> -->
+  <a href="http://www.guoshao520.com/my-file-path/video/demonstration.mp4">点我查看演示视频！！</a>
+  <!-- <video src='http://www.guoshao520.com/my-file-path/video/demonstration.mp4' autoplay muted></video> -->
 </div>
 
 ## 特性
@@ -25,7 +25,7 @@ vue-dynamic-admin 是一个基于【vue vben admin】免费开源的动态后台
 
 ## 预览
 
-- [vue-dynamic-admin](http://106.55.240.242/ad-dynamic/index.html) - 预览界面
+- [vue-dynamic-admin](http://www.guoshao520.com/ad-dynamic/index.html) - 预览界面
 
 测试账号: test/123456
 
